@@ -1,6 +1,6 @@
-# name: "tagged-release"
+name: "tagged-release"
 
-# on:
+#on:
 #   push:
 #     tags:
 #       - "v*"
