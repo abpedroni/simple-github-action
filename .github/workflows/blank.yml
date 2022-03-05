@@ -28,7 +28,6 @@ jobs:
 
       - name: Release with GH Release
         uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
         with:
           files: Release.txt
           generate_release_notes: true
@@ -54,7 +53,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.github_token }}
         with:
           tag_name: "${{ steps.tag_version.outputs.new_tag }}"
-          release_name: "$3- Release {{ steps.tag_version.outputs.new_tag }}"
-          body: 
+          release_name: "3- Release ${{ steps.tag_version.outputs.new_tag }}"
+          body: ${{ steps.tag_version.outputs.changelog }}
           draft: true
           prerelease: true
